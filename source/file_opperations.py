@@ -12,8 +12,10 @@ def split_lines(array:list):
     activites = array[2:]
     return number_act, constraints, activites
 
-def split_constraints(constraints:str)-> list:
-    return constraints.split()
+def split_constraints(constraints:str)-> list[str]:
+    return constraints.split() #time index 0 , budget index 1
 
 
-print(split_constraints("10 200"))
+
+if __name__ == "__main__":
+    ...
