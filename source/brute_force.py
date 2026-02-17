@@ -15,7 +15,15 @@ def get_value():
         return values["cost"]
     elif constraint == "time":
         return values["time"]
-    
+
+def val_per_enjoyment(activity,position):
+    # get the enjoyment 
+    # get the value to be computed with position
+    array = activity.split()
+    enjoyment = array[values["enjoyment"]]
+    value = array[position]
+    return float(value) / float(enjoyment)
+
 def main():
     file = utility.get_file()
 #get constraint to use
@@ -26,6 +34,9 @@ def main():
 #then get the activties 
     list_activitys = utility.get_activites(file)
     print(list_activitys)
+    for x in range(len(list_activitys)):
+        v = val_per_enjoyment(list_activitys[x],values_position)
+        print(v)
 #calculate cost per value ie time per enjoyment 
 #then make sure constraint can be filled 
 
