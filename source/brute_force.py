@@ -3,7 +3,7 @@ import utility
 #FOCUS ON BUDGET
 constraint = "budget"
 constraints_position = {"time": 0,"budget": 1}
-values = {"name": 0,"time ": 1, "cost": 2, "enjoyment": 3 }
+values = {"name": 0,"time": 1, "cost": 2, "enjoyment": 3 }
 
 input_file = "assets/input_small.txt"
 
@@ -22,7 +22,7 @@ def val_per_enjoyment(activity,position):
     array = activity.split()
     enjoyment = array[values["enjoyment"]]
     value = array[position]
-    return float(value) / float(enjoyment)
+    return float(enjoyment) / float(value)
 
 def main():
     file = utility.get_file()
