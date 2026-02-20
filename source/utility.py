@@ -26,7 +26,7 @@ def get_number_activities(array:list):
 def get_max_constraints(array:list):
     return array[1]
 
-def get_activites(array:list):
+def get_activities(array:list):
     return array[2:]
 
 def split_constraints(constraints:str)-> list[str]:
