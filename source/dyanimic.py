@@ -55,6 +55,9 @@ def dynamic_programming(activities, max_value, amount):
     return highest_enjoyment, highest_sequence, cost, total_time
 
 def main():
+    #SUGGESTION
+    #maybe use a linked list to then get the highest value per with val_per_enjoyment
+    #if cost IE budget is not maximised maybe try diff combos with pairs close by in enjoyment / value
     file = utility.get_file()
     max_constraint_value = utility.get_target(get_constraint())
     list_activitys = utility.get_activities(file)
