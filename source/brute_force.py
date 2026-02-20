@@ -42,8 +42,10 @@ def brute_force(activities,max_value,amount):
             highest_sequence = tmp_sequence.copy()
             highest_enjoyment = tmp_enjoyment
             cost = tmp_cost
+
+    total_time = sum(utility.get_int_value_array(values["time"], a.split()) for a in highest_sequence)
         
-    return highest_enjoyment, highest_sequence , cost
+    return highest_enjoyment, highest_sequence , cost, total_time
 
 def main():
     
@@ -59,4 +61,5 @@ def main():
 #calculate cost per value ie time per enjoyment 
 #then make sure constraint can be filled 
 
-main()
+if __name__ == "__main__":
+    main()
