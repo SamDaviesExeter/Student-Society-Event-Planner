@@ -4,7 +4,7 @@ import utility
 import brute_force as bf
 import dyanimic as dp
 
-def print_results(algorithm_name, selected, total_enjoyment, total_time, toatl_cost, exec_time):
+def print_results(algorithm_name, selected, total_enjoyment, total_time, total_cost, exec_time):
     print(f" ---{algorithm_name}---")
     print("Selected activities:")
     for a in selected:
@@ -43,7 +43,7 @@ def main():
     print_results("Brute force algorithm", bf_selected, bf_enjoyment, bf_time, bf_cost, bf_exec)
 
     start = time.time()
-    dp_enjoyment, dp_selected, dp_cost, dp_time = dp.brute_force(list_activities, utility.get_target(dp.get_constraint()), n_activities)
+    dp_enjoyment, dp_selected, dp_cost, dp_time = dp.dynamic_programming(list_activities, utility.get_target(dp.get_constraint()), n_activities)
     dp_exec = time.time() - start
     print_results("Dynamic programming algorithm", dp_selected, dp_enjoyment, dp_time, dp_cost, dp_exec)
 
