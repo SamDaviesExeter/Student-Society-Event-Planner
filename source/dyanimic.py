@@ -15,7 +15,7 @@ def get_value():
         return values["cost"]
     elif constraint == "time":
         return values["time"]
-    
+
 def val_per_enjoyment(activity,position):
     # get the enjoyment 
     # get the value to be computed with position
@@ -23,6 +23,15 @@ def val_per_enjoyment(activity,position):
     enjoyment = array[values["enjoyment"]]
     value = array[position]
     return float(enjoyment) / float(value)
+
+def dynamic_programming(activities, max_value, amount):
+    field_index = get_value()
+    dp = [[0] * (max_value + 1) for _ in range(amount + 1)]
+
+    for i in range(1, amount + 1):
+        parts = activities[i - 1].split()
+        activity_cost = int(parts[field_index])
+        activity_enjoyment = int(parts[values["enjoyment"]])
 
 def main():
     #SUGGESTION
