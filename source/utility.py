@@ -21,9 +21,9 @@ def get_file():
     return read_file(get_file_path())
 
 def get_number_activities(array:list):
-    return array[0]
+    return int(array[0])
 
-def get_constraints(array:list):
+def get_max_constraints(array:list):
     return array[1]
 
 def get_activites(array:list):
@@ -44,11 +44,13 @@ def get_targeted_constraint(file_path,choice):
 
 def get_target(choice):
     file = get_file()
-    constraints = get_constraints(file)
+    constraints = get_max_constraints(file)
     constraints_split = split_constraints(constraints)
     con = get_constranint(choice,constraints_split)
-    return con
+    return int(con)
 
+def get_int_value_array(position,array):
+    return int(array[position])
 
 if __name__ == "__main__":
     ...
