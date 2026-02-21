@@ -2,7 +2,7 @@ import time
 import sys
 import utility
 import brute_force as bf
-import dyanimic as dp
+import dynamic as dp
 
 def print_results(algorithm_name, selected, total_enjoyment, total_time, total_cost, exec_time):
     print(f" ---{algorithm_name}---")
@@ -37,18 +37,28 @@ def main():
     print(f"Available budget: £{available_budget}")
     print()
 
-    start = time.time()
-    bf_enjoyment, bf_selected, bf_cost, bf_time = bf.brute_force(list_activities, utility.get_target(bf.get_constraint()), n_activities)
-    bf_exec = time.time() - start
-    print_results("Brute force algorithm", bf_selected, bf_enjoyment, bf_time, bf_cost, bf_exec)
+    run_bf = True
+    if n_activities > 25:
+        print(f"The input size is large ({n_activities} activites)")
+        print(f"The brute force will check {2**n_activities} combinations")
+        response = input("This will take a long time. Would you like to continue? (y/n): ")
+        if response.lower() != "y":
+            run_bf = False
+            print("Skipping brute force\n")
+
+    if run_bf:
+        start = time.time()
+        bf_results = bf.brute_force(list_activities,available_time,available_budget, n_activities)
+        bf_exec = time.time() - start
+        print_results("Brute force algorithm", bf_results[1],bf_results[0], bf_results[3], bf_results[2], bf_exec)
 
     start = time.time()
-    dp_enjoyment, dp_selected, dp_cost, dp_time = dp.dynamic_programming(list_activities, utility.get_target(dp.get_constraint()), n_activities)
+    dp_results = dp.dynamic_programming(list_activities,available_time,available_budget,n_activities)
     dp_exec = time.time() - start
-    print_results("Dynamic programming algorithm", dp_selected, dp_enjoyment, dp_time, dp_cost, dp_exec)
+    print_results("Dynamic programming algorithm", dp_results[1], dp_results[0], dp_results[3], dp_results[2], dp_exec)
 
-    print(f"Time available: {available_time} hours | Time used: {bf_time} hours")
-    print(f"Available budget: £{available_budget} | Budget used: £{bf_cost}")
+    print(f"Time available: {available_time} hours | Time used: {dp_results[3]} hours")
+    print(f"Available budget: £{available_budget} | Budget used: £{dp_results[2]}")
 
 if __name__ == "__main__":
     main()

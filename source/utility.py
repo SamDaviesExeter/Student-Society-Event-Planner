@@ -1,6 +1,6 @@
 
 
-input_file = "assets/input_small.txt"
+input_file = "assets/input_medium.txt"
 
 def read_file(file:str)-> list[str]:
     with open(file, "r") as f:
@@ -11,8 +11,8 @@ def read_file(file:str)-> list[str]:
 def split_lines(array:list):
     number_act = array[0]
     constraints = array[1]
-    activites = array[2:]
-    return number_act, constraints, activites
+    activities = array[2:]
+    return number_act, constraints, activities
 
 def get_file_path():
     return input_file
