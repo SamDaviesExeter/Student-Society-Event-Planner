@@ -3,6 +3,7 @@ import sys
 import utility
 import brute_force as bf
 import dynamic as dp
+import os
 
 def print_results(algorithm_name, selected, total_enjoyment, total_time, total_cost, exec_time):
     print(f" ---{algorithm_name}---")
@@ -16,35 +17,27 @@ def print_results(algorithm_name, selected, total_enjoyment, total_time, total_c
     print(f"Execution time: {exec_time:.3f} seconds")
     print()
 
-def main():
-    if len(sys.argv) > 1:
-        input_file = sys.argv[1]
-        utility.input_file = input_file
-
-    else:
-        input_file = utility.input_file
-
-    file = utility.get_file()
-    n_activities = utility.get_number_activities(file)
-    list_activities = utility.get_activities(file)
+def run_planner(file_path):
+    utility.input_file = file_path
+    file_data = utility.get_file()
+    n_activities = utility.get_number_activities(file_data)
+    list_activities = utility.get_activities(file_data)
     available_time = utility.get_target(0)
     available_budget = utility.get_target(1)
 
-    print(" EVENT PLANNER RESULTS ")
-    print("-----------------------")
-    print(f"Input File: {input_file}")
-    print(f"Time available: {available_time} hours")
-    print(f"Available budget: £{available_budget}")
-    print()
+    print(f"\nProcessing File: {os.path.basename(file_path)}")
+    print(f"\nAvailable Time: {available_time}h | Available Budget: £{available_budget}")
 
     run_bf = True
-    if n_activities > 25:
+    if n_activities > 22:
         print(f"The input size is large ({n_activities} activites)")
-        print(f"The brute force will check {2**n_activities} combinations")
-        response = input("This will take a long time. Would you like to continue? (y/n): ")
+        if n_activities < 25:
+            print(f"The brute force will check {2**n_activities} combinations")
+            response = input("This will take a long time. Would you like to continue? (y/n): ")
+        response == "n"
         if response.lower() != "y":
             run_bf = False
-            print("Skipping brute force\n")
+            print("Skipping brute force (input file too large)\n")
 
     if run_bf:
         start = time.time()
@@ -57,8 +50,25 @@ def main():
     dp_exec = time.time() - start
     print_results("Dynamic programming algorithm", dp_results[1], dp_results[0], dp_results[3], dp_results[2], dp_exec)
 
-    print(f"Time available: {available_time} hours | Time used: {dp_results[3]} hours")
-    print(f"Available budget: £{available_budget} | Budget used: £{dp_results[2]}")
+def main():
+    test_folder = "assets"
+
+    if not os.path.exists(test_folder):
+        print(f"{test_folder} folder not found.")
+        return
+
+    #filters to look for txt files
+    files = sorted([f for f in os.listdir(test_folder) if f.endswith('.txt')])
+
+    #checks if any files exist
+    if not files:
+        print("No .txt files found in assets")
+        return
+    #completes algorithms for all input files
+    for filename in files:
+        run_planner(os.path.join(test_folder, filename))
+    print("All files completed")
+    
 
 if __name__ == "__main__":
     main()
