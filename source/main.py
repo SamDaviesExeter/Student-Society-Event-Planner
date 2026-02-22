@@ -34,7 +34,8 @@ def run_planner(file_path):
         if n_activities > 25:
             print(f"The brute force will check {2**n_activities} combinations")
             response = input("This will take a long time. Would you like to continue? (y/n): ")
-        response = "n"
+        else:
+            response = "n"
         if response.lower() != "y":
             run_bf = False
             print("Skipping brute force (input file too large)\n")
