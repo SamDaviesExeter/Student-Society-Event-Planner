@@ -34,7 +34,7 @@ class stack():
 
     def reverse_stack(self):
         tmp = []
-        for x in range(self.get_length()):
-            tmp.append(self.pop())
+        for x in range(self.get_length() -1, -1, -1):
+            tmp.append(self.stack[x])
         return tmp
         
