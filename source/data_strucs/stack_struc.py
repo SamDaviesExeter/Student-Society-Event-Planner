@@ -27,3 +27,14 @@ class stack():
         if self.get_length() == 0:
             return None
         return self.stack[-1]
+    
+    def insert_array(self,arr):
+        for x in range(len(arr)):
+            self.push(arr[x])
+
+    def reverse_stack(self):
+        tmp = []
+        for x in range(self.get_length()):
+            tmp.append(self.pop())
+        return tmp
+        

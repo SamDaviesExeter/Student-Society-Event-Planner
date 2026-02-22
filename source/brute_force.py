@@ -18,7 +18,6 @@ def brute_force(activities,max_time,max_budget,amount):
     split_activities = [a.split() for a in activities]
     #split activites outside of loop so we dont recalculate it 2^n times
 
-
     for x in range(2**amount):
         tmp_enjoyment = 0
         tmp_sequence = []
@@ -35,7 +34,7 @@ def brute_force(activities,max_time,max_budget,amount):
                 tmp_enjoyment += int(activity_data[values["enjoyment"]])
 
         if tmp_time <= max_time and tmp_cost <= max_budget:
-            # If valid, check if it's the most enjoyable so far
+            # if valid check if its the most enjoyable so far
             if tmp_enjoyment > highest_enjoyment:
                 highest_enjoyment = tmp_enjoyment
                 highest_sequence = tmp_sequence.copy()
