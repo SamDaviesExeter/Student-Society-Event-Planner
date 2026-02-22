@@ -1,7 +1,8 @@
 import utility
 
-
+# using dictionaries/hashmap to limit hardcoding values allowing easy mantanance
 values = {"name": 0,"time": 1, "cost": 2, "enjoyment": 3 }
+constraints = {"time":0, "budget":1}
 
 input_file = "assets/input_1000.txt"
 
@@ -14,8 +15,9 @@ def brute_force(activities,max_time,max_budget,amount):
     highest_sequence = []
     final_cost = 0 
     final_time = 0
-
+    
     split_activities = [a.split() for a in activities]
+    print(f"split activities {split_activities}")
     #split activites outside of loop so we dont recalculate it 2^n times
 
     for x in range(2**amount):
@@ -48,8 +50,8 @@ def main():
     file = utility.get_file()
     #get constraint to use
 
-    max_time = utility.get_target(0)
-    max_budget = utility.get_target(1)
+    max_time = utility.get_target(constraints["time"])
+    max_budget = utility.get_target(constraints["budget"])
     
     #then get the activties 
     list_activities = utility.get_activities(file)
