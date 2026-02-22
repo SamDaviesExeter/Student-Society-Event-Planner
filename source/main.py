@@ -31,7 +31,7 @@ def run_planner(file_path):
     run_bf = True
     if n_activities > 22:
         print(f"The input size is large ({n_activities} activites)")
-        if n_activities < 25:
+        if n_activities > 25:
             print(f"The brute force will check {2**n_activities} combinations")
             response = input("This will take a long time. Would you like to continue? (y/n): ")
         response = "n"

@@ -4,20 +4,19 @@ import utility
 values = {"name": 0,"time": 1, "cost": 2, "enjoyment": 3 }
 constraints = {"time":0, "budget":1}
 
-input_file = "assets/input_1000.txt"
+input_file = "assets/input_1000.txt" #depreciated
 
 
 def brute_force(activities,max_time,max_budget,amount):
     #2^n therefore 2 for loops
     #check ie acc0 acc1 acc2 then acc1 acc2 acc3 ... for example 
-    # power set basically
+    #implement a power set
     highest_enjoyment = -1
     highest_sequence = []
     final_cost = 0 
     final_time = 0
     
     split_activities = [a.split() for a in activities]
-    print(f"split activities {split_activities}")
     #split activites outside of loop so we dont recalculate it 2^n times
 
     for x in range(2**amount):
@@ -27,7 +26,8 @@ def brute_force(activities,max_time,max_budget,amount):
         tmp_time = 0
 
         for y in range(amount):
-            if(x & (1 << y)) > 0: # bitwise AND operation and a bit shift by of 1 y places left 
+            #https://medium.com/data-science/the-subsets-powerset-of-a-set-in-python-3-18e06bd85678
+            if (x & (1 << y)) > 0: # bitwise AND operation and a bit shift by of 1 y places left 
                 activity_data = split_activities[y]
                 tmp_sequence.append(activities[y])
 
@@ -35,7 +35,7 @@ def brute_force(activities,max_time,max_budget,amount):
                 tmp_cost += int(activity_data[values["cost"]])
                 tmp_enjoyment += int(activity_data[values["enjoyment"]])
 
-        if tmp_time <= max_time and tmp_cost <= max_budget:
+        if tmp_time <= max_time and tmp_cost <= max_budget: #extension multiple constraints 
             # if valid check if its the most enjoyable so far
             if tmp_enjoyment > highest_enjoyment:
                 highest_enjoyment = tmp_enjoyment
@@ -55,7 +55,6 @@ def main():
     
     #then get the activties 
     list_activities = utility.get_activities(file)
-    print(list_activities)
     n_activities = utility.get_number_activities(file)
 
     results = brute_force(list_activities, max_time, max_budget, n_activities)
