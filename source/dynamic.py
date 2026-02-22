@@ -45,7 +45,7 @@ def dynamic_programming(activities, max_time,max_budget, amount):
             current_t -= int(parsed_activities[i-1][values["time"]])
             current_b -= int(parsed_activities[i-1][values["cost"]])
 
-    #we need to reverse the list because we backtracked from the last item to the first
+    #we need to reverse the stack because we backtracked from the last item to the first
     highest_sequence = highest_sequence_stack.reverse_stack()
     
     #calculates final stats
