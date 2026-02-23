@@ -33,6 +33,9 @@ class stack():
             self.push(arr[x])
 
     def reverse_stack(self):
+        if self.get_length() == 0:
+            return None
+        
         tmp = []
         for x in range(self.get_length()):
             tmp.append(self.pop()) #using stack methods to reverse 
