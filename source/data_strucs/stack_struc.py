@@ -34,7 +34,7 @@ class stack():
 
     def reverse_stack(self):
         if self.get_length() == 0:
-            return None
+            return self.stack # instead of returning none return and empty list so our program doesnt crash
         
         tmp = []
         for x in range(self.get_length()):

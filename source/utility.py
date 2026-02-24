@@ -1,6 +1,6 @@
 
 
-input_file = "assets/input_medium.txt"
+input_file = "assets/constraint_gracefull.txt"
 
 def read_file(file:str)-> list[str]:
     with open(file, "r") as f:
