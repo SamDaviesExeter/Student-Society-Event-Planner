@@ -50,6 +50,7 @@ assets/
     input_large.txt
     constraint_budget.txt
     constraint_time.txt
+    constraint_gracefull.txt
 
 source/
     main.py
