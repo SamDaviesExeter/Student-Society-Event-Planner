@@ -23,7 +23,7 @@ The program will:
 - Apply both algorithms
 - Display selected activities
 - Display total enjoyment, cost and time taken
-- Ask if you want to skip the brute-force approach if the input size exceeds 25 activities (to avoid an excessive runtime)
+- Ask if you want to skip the brute-force approach if the input size exceeds 22 activities (to avoid an excessive runtime)
 
 ## Input File Format
 
