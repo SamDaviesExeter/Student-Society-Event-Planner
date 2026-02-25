@@ -1,9 +1,9 @@
 import time
-import sys
 import utility
 import brute_force as bf
 import dynamic as dp
 import os
+import greedyheuristic as gh
 
 def print_results(algorithm_name, selected, total_enjoyment, total_time, total_cost, exec_time):
     print(f" ---{algorithm_name}---")

@@ -4,11 +4,19 @@ values = {"name": 0,"time": 1, "cost": 2, "enjoyment": 3 }
 constraints = {"time":0, "budget":1}
 
 def greedscore(activity, maxbudget, maxtime):
+    maxbudget = float(maxbudget)
+    maxtime = float(maxtime)
     time = int(activity[1])
     budget = int(activity[2])
     enjoyment = int(activity[3])
-    normalisedbudget = budget / maxbudget
-    normalisedtime = time / maxtime
+    if maxbudget != 0:
+        normalisedbudget = budget / maxbudget
+    else:
+        normalisedbudget = 0
+    if maxtime != 0:
+        normalisedtime = time / maxtime
+    else:
+        normalisedtime = 0
     denominator = normalisedbudget + normalisedtime
     if denominator == 0:
         return 0
