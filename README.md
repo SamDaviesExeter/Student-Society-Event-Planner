@@ -94,6 +94,16 @@ Dynamic Programming
 
 Produces the same optimal result but significantly faster for larger input sizes
 
+Greedy Heuristic
+- Sorts activities with a scoring system
+- Selects activities in descending order
+- Does not explore all combinations
+- Does not guarantee optimal solution
+- Time complexity: O(nlogn)
+- Space complexity: O(n)
+
+Runs significantly faster than both but may produce a suboptimal solution
+
 ## Dependencies 
 
 This project:
