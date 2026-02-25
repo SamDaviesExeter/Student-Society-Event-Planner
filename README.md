@@ -24,6 +24,8 @@ The program will:
 - Display selected activities
 - Display total enjoyment, cost and time taken
 - Ask if you want to skip the brute-force approach if the input size exceeds 22 activities (to avoid an excessive runtime)
+- input 1000 will cause dynamic prossessing to take atleast 2 minuets, the program has not crashed 
+- input 100, 200, 1000 are not recommended to run with brute force input_large.txt takes about 3 minuets 
 
 ## Input File Format
 
