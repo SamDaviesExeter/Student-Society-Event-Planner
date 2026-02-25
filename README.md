@@ -24,8 +24,8 @@ The program will:
 - Display selected activities
 - Display total enjoyment, cost and time taken
 - Ask if you want to skip the brute-force approach if the input size exceeds 22 activities (to avoid an excessive runtime)
-- input 1000 will cause dynamic prossessing to take atleast 2 minuets, the program has not crashed 
-- input 100, 200, 1000 are not recommended to run with brute force input_large.txt takes about 3 minuets 
+- input 1000 will cause dynamic prossessing to take atleast 2 minutes, the program has not crashed 
+- input 100, 200, 1000 are not recommended to run with brute force input_large.txt takes about 3 minutes 
 
 ## Input File Format
 
@@ -58,6 +58,7 @@ source/
     main.py
     brute_force.py
     dynamic.py
+    greedyheuristic.py
     utility.py
     tests.py
     data_strucs/
@@ -70,6 +71,7 @@ source/
 - ```main.py``` - Entry point of the program. It will load the input files and execute both algorithms
 - ```brute_force.py``` - Implements the subset generation using bit manipulation to explore all possible combinations
 - ```dynamic.py``` - Implements a 3D dynamic programming solution: ```dp[i][t][b]``` representing a maximum enjoyment using first ```i``` activities within time ```t``` and budget ```b```
+- ```greedyheuristic.py``` - Implements a greedy heuristic algorithm for activity selection, this algorithm provides an alternative algorithmic approach
 - ```utility.py``` - Contains file-reading and helper functions
 - ```stack_struc.py``` / ```queue_struc.py``` - Custom data structure implementations used for solution reconstruction and ordering
 - ```tests.py``` - Used for basic validation and debugging during development
