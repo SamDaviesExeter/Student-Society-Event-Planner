@@ -59,6 +59,7 @@ source/
     brute_force.py
     dynamic.py
     greedyheuristic.py
+    performance.py
     utility.py
     tests.py
     data_strucs/
@@ -72,6 +73,7 @@ source/
 - ```brute_force.py``` - Implements the subset generation using bit manipulation to explore all possible combinations
 - ```dynamic.py``` - Implements a 3D dynamic programming solution: ```dp[i][t][b]``` representing a maximum enjoyment using first ```i``` activities within time ```t``` and budget ```b```
 - ```greedyheuristic.py``` - Implements a greedy heuristic algorithm for activity selection, this algorithm provides an alternative algorithmic approach
+- ```performance.py``` - Generates randomised test inputs, benchmarks performance of both main algorithms and produces execution time and speedup visualisations
 - ```utility.py``` - Contains file-reading and helper functions
 - ```stack_struc.py``` / ```queue_struc.py``` - Custom data structure implementations used for solution reconstruction and ordering
 - ```tests.py``` - Used for basic validation and debugging during development
@@ -106,13 +108,21 @@ Greedy Heuristic
 
 Runs significantly faster than both but may produce a suboptimal solution
 
+## Advanced Performance Analysis and Visualisation (Extension 2)
+
+This project includes a detailed performance analysis and visualisation tool for both the Brute Force and Dynamic Programming Algorithms.
+- Generates input sizes: ```n = 10, 15, 20, 25, 30``` - (note: the pre-existing ```input_10.txt``` file is modified to generate a new input file
+- Randomised ```max_time``` and ```max_budget``` per input
+- Execution times are measured and plotted, there are three types of plots: an execution time plot, an execution time log plot and a speedup factor bar chart. 
+
 ## Dependencies 
 
 This project:
 - Requires Python 3.x to run
 - Uses only standard Python libraries
+- To run the optional extension ```performance.py``` you must use ```pip install matplotlib``` and run it via the command ```python performance.py```
 
-No additional external libraries or packages are required
+No additional external libraries or packages are required for the main program
 
 ## Purpose
 
