@@ -120,7 +120,7 @@ This project includes a detailed performance analysis and visualisation tool for
 This project:
 - Requires Python 3.x to run
 - Uses only standard Python libraries
-- To run the optional extension ```performance.py``` you must use ```pip install matplotlib``` and run it via the command ```python performance.py```
+- To run the optional extension ```performance.py``` you must use ```pip install matplotlib``` and run it via the command ```python source/performance.py```
 
 No additional external libraries or packages are required for the main program
 
