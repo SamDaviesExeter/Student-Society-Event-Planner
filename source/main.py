@@ -28,6 +28,7 @@ def run_planner(file_path):
     print(f"\nProcessing File: {os.path.basename(file_path)}")
     print(f"\nAvailable Time: {available_time}h | Available Budget: £{available_budget}")
 
+    #checks if the input file is too large for brute force
     run_bf = True
     if n_activities > 22:
         print(f"The input size is large ({n_activities} activities)")
@@ -46,7 +47,7 @@ def run_planner(file_path):
         bf_exec = time.time() - start
         print_results("Brute force algorithm", bf_results[1],bf_results[0], bf_results[3], bf_results[2], bf_exec)
 
-
+    #checks if the input file is too large for dp
     run_dp = True
     if n_activities > 250:
         print(f"The input size is large ({n_activities} activities)")
