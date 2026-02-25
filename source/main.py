@@ -51,6 +51,11 @@ def run_planner(file_path):
     dp_exec = time.time() - start
     print_results("Dynamic programming algorithm", dp_results[1], dp_results[0], dp_results[3], dp_results[2], dp_exec)
 
+    start = time.time()
+    gh_results = gh.greedyapproach(list_activities,available_time,available_budget,n_activities)
+    gh_exec = time.time() - start
+    print_results("Greedy heuristic algorithm", gh_results[1], gh_results[0], gh_results[3], gh_results[2], gh_exec)
+
 def main():
     test_folder = "assets"
 
