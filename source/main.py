@@ -30,7 +30,7 @@ def run_planner(file_path):
 
     run_bf = True
     if n_activities > 22:
-        print(f"The input size is large ({n_activities} activites)")
+        print(f"The input size is large ({n_activities} activities)")
         if n_activities > 22:
             print(f"The brute force will check {2**n_activities} combinations")
             response = input("This will take a long time. Would you like to continue? (y/n): ")
@@ -46,10 +46,19 @@ def run_planner(file_path):
         bf_exec = time.time() - start
         print_results("Brute force algorithm", bf_results[1],bf_results[0], bf_results[3], bf_results[2], bf_exec)
 
-    start = time.time()
-    dp_results = dp.dynamic_programming(list_activities,available_time,available_budget,n_activities)
-    dp_exec = time.time() - start
-    print_results("Dynamic programming algorithm", dp_results[1], dp_results[0], dp_results[3], dp_results[2], dp_exec)
+
+    run_dp = True
+    if n_activities > 250:
+        print(f"The input size is large ({n_activities} activities)")
+        response = input("The dynamic programming matrix will be large and will take a long time. continue? (y/n): ")
+        if response.lower() != "y":
+            run_dp = False
+            print("Skipping dynamic programming (input file too large)\n")
+    if run_dp:
+        start = time.time()
+        dp_results = dp.dynamic_programming(list_activities,available_time,available_budget,n_activities)
+        dp_exec = time.time() - start
+        print_results("Dynamic programming algorithm", dp_results[1], dp_results[0], dp_results[3], dp_results[2], dp_exec)
 
     start = time.time()
     gh_results = gh.greedyapproach(list_activities,available_time,available_budget,n_activities)
